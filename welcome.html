@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Adjecta Medical</title>
+    <link rel="stylesheet" href="style-1.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Adjecta Medical</h1>
+    </header>
+
+    <!-- Body Section -->
+    <section id="welcome-section">
+        <p id="welcome-message">Loading...</p>
+        <button id="different-user-btn">Not you? Log in as a different user...</button>
+        <button id="login-signup-btn">Login or Sign Up</button>
+
+        <!-- Login Form (Hidden Initially) -->
+        <div id="login-form">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="rememberMe">Remember Me:</label>
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <br>
+            <button onclick="submitLogin()">Submit</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Contact Us | Privacy Policy | Terms & Conditions</p>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner">
+        <p>We use cookies to improve your experience. By using this site, you accept our cookie policy.</p>
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="scripts-1.js"></script>
+</body>
+</html>
