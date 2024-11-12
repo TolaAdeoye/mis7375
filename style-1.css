@@ -1,0 +1,15 @@
+ <style>
+        /* Basic styling for visibility */
+        #different-user-btn, #login-signup-btn, #login-form {
+            display: none;
+        }
+        #cookie-banner {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            background: lightgrey;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
