@@ -3,47 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Adjecta Medical</title>
-    <link rel="stylesheet" href="style-1.css">
+    <title>Patient Registration Form</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <!-- Header Section -->
     <header>
-        <h1>Welcome to Adjecta Medical</h1>
+        <div id="banner">
+            <h1>We'R'Docs Medical</h1>
+            <p>Today is: <span id="currentDate"></span></p>
+        </div>
     </header>
 
-    <!-- Body Section -->
-    <section id="welcome-section">
-        <p id="welcome-message">Loading...</p>
-        <button id="different-user-btn">Not you? Log in as a different user...</button>
-        <button id="login-signup-btn">Login or Sign Up</button>
+    <main>
+        <h2>Patient Registration Form</h2>
+        <form id="registrationForm" action="thankyou.html">
+            <table>
+                <!-- Personal Information -->
+                <tr>
+                    <td colspan="4">
+                        <h3>Personal Information</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td>
+                        <input type="text" name="First Name" required>
+                        <span class="error" id="firstNameError"></span>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        <input type="text" name="Last Name" required>
+                        <span class="error" id="lastNameError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td>
+                        <input type="date" id="dob" name="Date of Birth" required>
+                        <span class="error" id="dobError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>SSN:</td>
+                    <td>
+                        <input type="password" name="SSN" required>
+                    </td>
+                </tr>
 
-        <!-- Login Form (Hidden Initially) -->
-        <div id="login-form">
-            <h2>Login</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="rememberMe">Remember Me:</label>
-            <input type="checkbox" id="rememberMe" name="rememberMe">
-            <br>
-            <button onclick="submitLogin()">Submit</button>
-        </div>
-    </section>
+                <!-- Contact Information -->
+                <tr>
+                    <td colspan="4">
+                        <h3>Contact Information</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="Email" required>
+                        <span class="error" id="emailError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>
+                        <input type="tel" name="Phone" required>
+                        <span class="error" id="phoneError"></span>
+                    </td>
+                </tr>
 
-    <!-- Footer Section -->
+                <!-- Address -->
+                <tr>
+                    <td colspan="4">
+                        <h3>Address</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address Line 1:</td>
+                    <td>
+                        <input type="text" name="Address Line 1" required>
+                        <span class="error" id="address1Error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address Line 2:</td>
+                    <td>
+                        <input type="text" name="Address Line 2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <input type="text" name="City" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <select name="State" required>
+                            <option value="">Select</option>
+                            <option value="TX">Texas</option>
+                            <option value="CA">California</option>
+                            <!-- Add other states -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip Code:</td>
+                    <td>
+                        <input type="text" name="Zip Code" required>
+                        <span class="error" id="zipError"></span>
+                    </td>
+                </tr>
+
+                <!-- Additional Information -->
+                <tr>
+                    <td colspan="4">
+                        <h3>Health Information</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <strong>Check all that apply:</strong><br>
+                        <input type="checkbox" name="condition" value="Chicken Pox"> Chicken Pox<br>
+                        <input type="checkbox" name="condition" value="Measles"> Measles<br>
+                        <input type="checkbox" name="condition" value="Covid-19"> Covid-19<br>
+                        <input type="checkbox" name="condition" value="Small Pox"> Small Pox<br>
+                        <input type="checkbox" name="condition" value="Tetanus"> Tetanus
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        <strong>Gender:</strong><br>
+                        <input type="radio" name="gender" value="Male" required> Male<br>
+                        <input type="radio" name="gender" value="Female"> Female<br>
+                        <input type="radio" name="gender" value="Other"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <strong>Have you been vaccinated?</strong><br>
+                        <input type="radio" name="vaccinated" value="Yes" required> Yes<br>
+                        <input type="radio" name="vaccinated" value="No"> No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <strong>Do you have insurance?</strong><br>
+                        <input type="radio" name="insurance" value="Yes" required> Yes<br>
+                        <input type="radio" name="insurance" value="No"> No
+                    </td>
+                </tr>
+
+                <!-- Salary Slider -->
+                <tr>
+                    <td>What is your annual income?</td>
+                    <td colspan="3">
+                        <input type="range" id="salary" name="Salary Expectation" min="20000" max="200000" step="1000" value="20000">
+                        <span id="salaryDisplay">$20,000</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Describe Symptoms:</td>
+                    <td colspan="3">
+                        <textarea name="Symptoms" rows="3" cols="50"></textarea>
+                    </td>
+                </tr>
+
+                <!-- Credentials -->
+                <tr>
+                    <td colspan="4">
+                        <h3>Credentials</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>User ID:</td>
+                    <td>
+                        <input type="text" id="userId" name="User ID" required>
+                        <span class="error" id="userIdError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" id="password" name="Password" required>
+                        <span class="error" id="passwordError"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td>
+                        <input type="password" id="confirmPassword" name="Confirm Password" required>
+                        <span class="error" id="confirmPasswordError"></span>
+                    </td>
+                </tr>
+
+                <!-- Submission Buttons -->
+                <tr>
+                    <td colspan="4" style="text-align: center;">
+                        <button type="reset">Clear and Start Over</button>
+                        <button type="submit">Submit</button>
+                        <button type="button" id="reviewButton">Review</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <section id="reviewArea" style="display: none;">
+            <h2>Review Your Data</h2>
+            <div id="reviewContent" class="review-container"></div>
+        </section>
+    </main>
+
     <footer>
-        <p>Contact Us | Privacy Policy | Terms & Conditions</p>
+        <div id="footer">
+            <p>We'R'Docs Medical</p>
+            <p>Contact Us</p>
+            <p>Follow us on <a href="facebook.com">Facebook</a> | <a href="x.com">Twitter</a></p>
+        </div>
     </footer>
-
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner">
-        <p>We use cookies to improve your experience. By using this site, you accept our cookie policy.</p>
-        <button onclick="acceptCookies()">Accept</button>
-    </div>
-
-    <!-- External JavaScript -->
-    <script src="scripts-1.js"></script>
 </body>
 </html>
